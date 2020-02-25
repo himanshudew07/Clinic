@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.NotFound;
 import org.hibernate.annotations.NotFoundAction;
@@ -32,6 +32,7 @@ public class Vehicle {
 	private String type; 
 	
 	//@ManyToMany(mappedBy="vehicles")
+	@Transient
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@NotFound(action = NotFoundAction.IGNORE)
 	private Doctor doctor;

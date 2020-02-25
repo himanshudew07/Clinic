@@ -19,6 +19,8 @@
    <!--  <mapping resource="employee.hbm.xml"/>   -->
   		 <mapping class="org.model.Doctor"/>
   		 <mapping class="org.model.Vehicle"/>
+  		 <mapping class="org.model.FourWheeler"/>
+  		 <mapping class="org.model.TwoWheeler"/>
   		
 
 
