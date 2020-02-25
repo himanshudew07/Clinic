@@ -1,9 +1,18 @@
 package org.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+
+
+import org.hibernate.annotations.NotFound;
+import org.hibernate.annotations.NotFoundAction;
 
 
 
@@ -22,14 +31,21 @@ public class Vehicle {
 	@Column(name="VType")
 	private String type; 
 	
-	@ManyToOne
+	//@ManyToMany(mappedBy="vehicles")
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@NotFound(action = NotFoundAction.IGNORE)
 	private Doctor doctor;
+
 
 	public Vehicle(int vehicleno, String name, String type) {
 		super();
 		this.vehicleno = vehicleno;
 		this.name = name;
 		this.type = type;
+	}
+	
+	public Vehicle() {
+		// TODO Auto-generated constructor stub
 	}
 	
 	public int getVehicleno() {
@@ -51,12 +67,22 @@ public class Vehicle {
 		this.type = type;
 	}
 
-	
 	public Doctor getDoctor() {
 		return doctor;
 	}
-	
+
 	public void setDoctor(Doctor doctor) {
 		this.doctor = doctor;
 	}
+
+
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getVehicleno()+","+getName()+","+getType();
+	}
+
+
+
 }

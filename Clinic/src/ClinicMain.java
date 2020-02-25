@@ -20,22 +20,20 @@ public class ClinicMain {
 		Vehicle vehicle3 = new Vehicle(2903, "HONDA","BYCK");
 		
 		//@One-to-many
-	/*	doctor1.getVehicles().add(vehicle1);
-		doctor1.getVehicles().add(vehicle2);
-		doctor1.getVehicles().add(vehicle3);*/
+	   // doctor1.getVehicles().add(vehicle1);
+		//doctor1.getVehicles().add(vehicle2);
+		//doctor1.getVehicles().add(vehicle3);
 		
-		doctor2.getVehicles().add(vehicle1);
+		/*doctor2.getVehicles().add(vehicle1);
 		doctor2.getVehicles().add(vehicle2);
-		doctor2.getVehicles().add(vehicle3);
+		doctor2.getVehicles().add(vehicle3);*/
+		
+		//vehicle1.setDoctor(doctor1);
 		
 		//many to one
-		vehicle1.setDoctor(doctor2);
-		vehicle2.setDoctor(doctor2);
-		vehicle3.setDoctor(doctor2);
-		
-		
-		
-		
+		vehicle1.setDoctor(doctor1);
+		vehicle2.setDoctor(doctor1);
+		vehicle3.setDoctor(doctor1);
 		//DOCTER_VEHICLE-> DOCTOR_ID_ VEHICLE_ID
 		
 		
@@ -44,12 +42,12 @@ public class ClinicMain {
 		session.beginTransaction();
 		
 		
-		session.save(doctor1);
-		session.save(doctor2);
+		//session.save(doctor1);
+		//session.save(doctor2);
 		
-		session.save(vehicle1);
-		session.save(vehicle2);
-		session.save(vehicle3);
+		session.persist(vehicle1);
+		session.persist(vehicle2);
+		session.persist(vehicle3);
 		
 		session.getTransaction().commit();		
 

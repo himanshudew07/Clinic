@@ -8,6 +8,7 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
@@ -41,11 +42,11 @@ public class Doctor {
 	
 	
 //	@JoinTable(name="RELATION", joinColumns = @JoinColumn(name="DOCTOR_ID"), inverseJoinColumns = @JoinColumn(name="VEHICLE_ID"))
+	//@OneToMany(mappedBy="doctor")
+	//@ManyToMany
 	@OneToMany(mappedBy="doctor")
 	private List<Vehicle> vehicles = new ArrayList<>();
 	
-	
-
 	
 	public Doctor(int id, String name, int age, Date dob) {
 		// TODO Auto-generated constructor stub
@@ -54,6 +55,9 @@ public class Doctor {
 		this.name = name;
 		this.age = age;
 		this.dob = dob;
+	}
+	public Doctor() {
+		// TODO Auto-generated constructor stub
 	}
 	public int getId() {
 		return id;
@@ -95,5 +99,11 @@ public class Doctor {
 	}
 	public void setVehicles(List<Vehicle> vehicles) {
 		this.vehicles = vehicles;
+	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return getId()+","+getName();
 	}
 }
