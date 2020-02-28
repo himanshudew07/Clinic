@@ -5,8 +5,13 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Transient;
@@ -18,6 +23,10 @@ import org.hibernate.annotations.NotFoundAction;
 
 
 @Entity(name="VEHICLE")
+//@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+@Inheritance(strategy = InheritanceType.JOINED)
+//@DiscriminatorColumn(name="VehicleType", discriminatorType = DiscriminatorType.STRING)
+//@DiscriminatorValue( value="General Vehicle")
 public class Vehicle {
 	
 	@Id

@@ -6,7 +6,7 @@
 <hibernate-configuration>  
   
 	<session-factory>
-		<property name="hbm2ddl.auto">create</property>  
+		<property name="hbm2ddl.auto">update</property>  
         <property name="connection.dialect">org.hibernate.dialect.Oracle10gDialect</property>  
         <property name="connection.url">jdbc:oracle:thin:@localhost:1521:XE</property>  
         <property name="connection.username">sys as sysdba</property>  

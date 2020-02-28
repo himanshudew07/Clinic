@@ -19,7 +19,7 @@ import java.util.List;
 
 
 
-@Entity(name="DOCTER")
+@Entity
 public class Doctor {
 	@Column(name="NAME")
 	private String name;
@@ -44,7 +44,8 @@ public class Doctor {
 //	@JoinTable(name="RELATION", joinColumns = @JoinColumn(name="DOCTOR_ID"), inverseJoinColumns = @JoinColumn(name="VEHICLE_ID"))
 	//@OneToMany(mappedBy="doctor")
 	//@ManyToMany
-	@OneToMany(mappedBy="doctor")
+	@OneToMany//(mappedBy="doctor")
+	@Transient
 	private List<Vehicle> vehicles = new ArrayList<>();
 	
 	
